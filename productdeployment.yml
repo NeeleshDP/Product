@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productapp-deployment
+  labels:
+    app: productapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productapp
+  template:
+    metadata:
+      labels:
+        app: productapp
+    spec:
+      containers:
+      - name: productapp
+        image: 958755137401.dkr.ecr.us-east-2.amazonaws.com/markretailproduct:latest
+        ports:
+                - containerPort: 3000
